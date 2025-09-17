@@ -1,0 +1,18 @@
+.m2 {
+  height: 100%; /* desktop inherits parent .map height */
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .m2 {
+    height: 72vh; /* map takes top half */
+    margin-bottom: 0px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 425px) {
+  .m2 {
+    height: 62vh; /* smaller map on mobile */
+  }
+}

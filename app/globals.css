@@ -1,0 +1,99 @@
+/* @import "tailwindcss";
+
+:root {
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+/* @tailwind components; */
+/* @tailwind utilities; */
+  @import "tailwindcss/preflight";
+  @import "tailwindcss/utilities";
+  @import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    order: 2; /* sidebar below */
+    height: auto;
+  }
+
+  .map {
+    width: 100% !important;
+    order: 1; /* map above */
+    height: 300px; /* smaller map for mobile */
+  }
+  .hm{
+   grid-template-columns: repeat(1, minmax(0, 1fr));;
+}
+}/* For very small screens (mobile) */
+@media (max-width: 425px) {
+  .hm {
+    display: grid;
+    grid-template-columns: 1fr; /* single column layout */
+    grid-template-rows: auto auto; /* map first, sidebar second */
+    gap: 0.5rem;
+    height: 50%;
+  }
+
+  .map {
+    order: 1; /* map on top */
+    width: 100%; /* full width */
+    height: 30%; /* smaller map height on mobile */
+  }
+
+  .sidebar {
+    order: 2; /* sidebar below map */
+    width: 100%; /* full width */
+    height: auto;
+  }
+  .m2{
+    height: 300px;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .sidebar {
+    order: 1;
+  }
+  .map {
+    order: 2;
+  }
+}
+.m2 {
+  height: 100%; /* desktop inherits parent .map height */
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .m2 {
+    height: 50vh; /* map takes top half */
+  }
+}
+
+/* Mobile */
+@media (max-width: 425px) {
+  .m2 {
+    height: 40vh; /* smaller map on mobile */
+  }
+}
